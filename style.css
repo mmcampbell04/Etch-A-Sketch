@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #cfceca;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'American Typewriter';
+  font-size: 2.5rem;
+  margin: 20px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr;
+  grid-template-areas: '. container buttons';
+  justify-content: center;
+}
+
+#container {
+  border: 3px solid black;
+  display: grid;
+  width: 650px;
+  height: 650px;
+  margin: 20px auto;
+  grid-area: container;
+}
+
+.cell {
+  border: 0.5px solid black;
+}
+
+/* CLEAR BUTTON */
+.buttons {
+  grid-area: buttons;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@keyframes stripe-slide {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.btn {
+  max-width: 160px;
+  padding: 5px;
+  margin: 10px;
+  font-family: 'American Typewriter';
+  cursor: pointer;
+  text-decoration: none;
+  background: rgb(102, 102, 102, 0.6);
+  font-size: 16px;
+  line-height: 45px;
+  margin: 0 0 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5%;
+  box-shadow: 5px 5px 5px 0px rgba(49, 51, 48, 0.81);
+}
+
+/* media queries */
+
+/* ipad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  h1 {
+    margin-top: 4.5rem;
+  }
+
+  .content {
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas:
+      '. container .'
+      '. buttons .';
+  }
+
+  .buttons {
+    display: inline-block;
+    text-align: center;
+    margin: 35px;
+  }
+
+  .btn {
+    margin: 0 10px;
+  }
+}
+
+/* iphone */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  h1 {
+    margin-top: 4rem;
+  }
+
+  .content {
+    max-width: 400px;
+    max-height: 400px;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas:
+      '. container .'
+      '. buttons .';
+  }
+
+  #container {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .buttons {
+    display: inline;
+    text-align: center;
+    margin: 35px;
+  }
+
+  .btn {
+    max-width: 100px;
+    font-size: 12px;
+    margin: 0 10px;
+  }
+}
